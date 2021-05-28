@@ -13,7 +13,7 @@ describe('The Tags Component', () => {
     expect(input.value).toBe(value);
   });
 
-  it('accepts user input.', () => {
+  it('creates tags from input.', () => {
     render(<Tags></Tags>);
     const input = screen.getByLabelText(/Tags/);
     const value = 'foobar';
