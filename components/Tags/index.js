@@ -5,6 +5,7 @@ export default function Tags() {
   const [ tags, setTags ] = useState([]);
 
   function submit() {
+    setTags([...tags, inputEl.current.value]);
     inputEl.current.value = '';
   }
 
