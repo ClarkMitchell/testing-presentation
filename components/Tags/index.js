@@ -3,9 +3,10 @@ import { useRef, useState } from 'react';
 export default function Tags() {
   const inputEl = useRef(null);
   const [ tags, setTags ] = useState([]);
+  const MAXIMUM_TAGS = 3;
 
   function submit() {
-    if (tags.length === 3) {
+    if (tags.length === MAXIMUM_TAGS) {
       return;
     }
 
