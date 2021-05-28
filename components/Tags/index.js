@@ -1,7 +1,8 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 
 export default function Tags() {
   const inputEl = useRef(null);
+  const [ tags, setTags ] = useState([]);
 
   function submit() {
     inputEl.current.value = '';
