@@ -17,9 +17,6 @@ describe('The Tags Component', () => {
     render(<Tags></Tags>);
     const input = screen.getByLabelText(/Tags/);
     const value = 'foobar';
-
     fireEvent.change(input, { target: { value } });
-
-    expect(input.value).toBe(value);
   });
 });
