@@ -8,7 +8,7 @@ export default function Tags() {
   function submit(e) {
     e.preventDefault();
 
-    if (tags.length === MAXIMUM_TAGS) {
+    if (!inputEl.current.value || tags.length === MAXIMUM_TAGS) {
       return;
     }
 
