@@ -1,5 +1,6 @@
 import React from 'react';
-import { screen, render, fireEvent, waitFor } from '@testing-library/react';
+import { screen, render, fireEvent, waitFor, act } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import Tags from '~/components/Tags';
 
 describe('The Tags Component', () => {
@@ -60,9 +61,7 @@ describe('The Tags Component', () => {
     const input = screen.getByLabelText(/Tags/);
     const value = 'foobar';
 
-    fireEvent.change(input, { target: { value } });
-    fireEvent.keyDown(input, { key: 'Enter', code: 'Enter' });
-
+    userEvent.type(input, `${value}{enter}`);
     expect(input.value).toBe('');
     expect(screen.getByText(value)).toBeInTheDocument();
   });
