@@ -18,19 +18,23 @@ export default function Tags() {
   }
 
   return (
-    <form className="tags" onSubmit={submit}>
-      <div className="tags__input">
-        <label htmlFor="input">
-          <h1>Tags</h1>
-          <input type="text" id="input" ref={inputEl} />
-        </label>
+    <div className="tags">
+      <form className="tags__form" onSubmit={submit}>
+        <div className="tags__input">
+          <label htmlFor="input">
+            <h1>Tags</h1>
+            <input type="text" id="input" ref={inputEl} />
+          </label>
+        </div>
+        <div className="tags__button">
+          <button type="submit">Enter</button>
+        </div>
+      </form>
+      <div className="tags_pills">
+        {tags.map((tag) => (
+          <span className="pill" key={tag}>{tag}</span>
+        ))}
       </div>
-      <div className="tags__button">
-        <button type="submit">Enter</button>
-      </div>
-      {tags.map((tag) => (
-        <span key={tag}>{tag}</span>
-      ))}
-    </form>
+    </div>
   );
 }
