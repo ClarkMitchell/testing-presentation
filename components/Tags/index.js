@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import { camelCase } from '~/utils';
+import { camelCase } from '../../utils';
 
 export default function Tags() {
   const inputEl = useRef(null);
@@ -24,7 +24,7 @@ export default function Tags() {
         <div className="tags__input">
           <label htmlFor="input">
             <h1>Tags</h1>
-            <input type="text" id="input" ref={inputEl} />
+            <input type="search" id="input" ref={inputEl} />
           </label>
         </div>
         <div className="tags__button">
