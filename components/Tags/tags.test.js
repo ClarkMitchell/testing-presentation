@@ -62,7 +62,20 @@ describe('The Tags Component', () => {
     const value = 'foobar';
 
     userEvent.type(input, `${value}{enter}`);
+
     expect(input.value).toBe('');
     expect(screen.getByText(value)).toBeInTheDocument();
+  });
+
+  it('should transform tags to camelCase.', async () => {
+    render(<Tags></Tags>);
+    const input = screen.getByLabelText(/Tags/);
+    const entered = 'foo BAR baz BuZ';
+    const expected = 'fooBarBazBuz';
+
+    userEvent.type(input, `${entered}{enter}`);
+
+    expect(input.value).toBe('');
+    expect(screen.getByText(expected)).toBeInTheDocument();
   });
 });
