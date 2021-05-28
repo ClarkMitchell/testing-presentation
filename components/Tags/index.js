@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react';
+import { camelCase } from '~/utils';
 
 export default function Tags() {
   const inputEl = useRef(null);
@@ -12,7 +13,7 @@ export default function Tags() {
       return;
     }
 
-    const uniqueTags = new Set([...tags, inputEl.current.value]);
+    const uniqueTags = new Set([...tags, camelCase(inputEl.current.value)]);
     setTags(Array.from(uniqueTags));
     inputEl.current.value = '';
   }

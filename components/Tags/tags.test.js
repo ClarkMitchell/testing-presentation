@@ -70,12 +70,11 @@ describe('The Tags Component', () => {
   it('should transform tags to camelCase.', async () => {
     render(<Tags></Tags>);
     const input = screen.getByLabelText(/Tags/);
-    const entered = 'foo BAR baz BuZ';
+    const entered = 'foo Bar baz Buz';
     const expected = 'fooBarBazBuz';
 
     userEvent.type(input, `${entered}{enter}`);
 
-    expect(input.value).toBe('');
     expect(screen.getByText(expected)).toBeInTheDocument();
   });
 });
