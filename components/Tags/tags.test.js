@@ -18,5 +18,8 @@ describe('The Tags Component', () => {
     const input = screen.getByLabelText(/Tags/);
     const value = 'foobar';
     fireEvent.change(input, { target: { value } });
+
+    const button = screen.getByText(/Enter/);
+    fireEvent.click(button);
   });
 });
