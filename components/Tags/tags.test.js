@@ -15,4 +15,10 @@ describe('The Tags Component', () => {
     expect(input.value).toBe('');
     expect(screen.getByText(value)).toBeInTheDocument();
   });
+
+  it('creates a maximum of three tags.', () => {
+    render(<Tags></Tags>);
+    const input = screen.getByLabelText(/Tags/);
+    const button = screen.getByText(/Enter/);
+  });
 });
