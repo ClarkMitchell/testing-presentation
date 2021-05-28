@@ -20,5 +20,11 @@ describe('The Tags Component', () => {
     render(<Tags></Tags>);
     const input = screen.getByLabelText(/Tags/);
     const button = screen.getByText(/Enter/);
+
+    ['foo', 'bar', 'baz'].forEach((tag) => {
+      fireEvent.change(input, { target: { tag } });
+      fireEvent.click(button);
+      expect(screen.getByText(tag)).toBeInTheDocument();
+    });
   });
 });
