@@ -26,5 +26,10 @@ describe('The Tags Component', () => {
       fireEvent.click(button);
       expect(screen.getByText(tag)).toBeInTheDocument();
     });
+
+    const invalidTag = 'buz';
+    fireEvent.change(input, { target: { invalidTag } });
+    fireEvent.click(button);
+    expect(screen.queryByText(invalidTag)).not.toBeInTheDocument();
   });
 });
