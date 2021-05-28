@@ -18,6 +18,9 @@ export default function Tags() {
       <button type="button" onClick={submit}>
         Enter
       </button>
+      {tags.map((tag) => (
+        <span key={tag}>{tag}</span>
+      ))}
     </div>
   )
 }
