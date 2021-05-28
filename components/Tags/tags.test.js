@@ -54,4 +54,16 @@ describe('The Tags Component', () => {
       expect(screen.getByText(second)).toBeInTheDocument();
     });
   });
+
+  it('can be submitted with enter key.', async () => {
+    render(<Tags></Tags>);
+    const input = screen.getByLabelText(/Tags/);
+    const value = 'foobar';
+
+    fireEvent.change(input, { target: { value } });
+    fireEvent.keyDown(input, { key: 'Enter', code: 'Enter' });
+
+    expect(input.value).toBe('');
+    expect(screen.getByText(value)).toBeInTheDocument();
+  });
 });
