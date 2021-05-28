@@ -41,18 +41,17 @@ describe('The Tags Component', () => {
     const input = screen.getByLabelText(/Tags/);
     const button = screen.getByRole('button');
 
-    const tags = ['foo', 'bar', 'baz', 'buz'];
+    const tags = ['foo', 'bar', 'foo'];
     tags.forEach((value) => {
       fireEvent.change(input, { target: { value } });
       fireEvent.click(button);
     });
 
-    const [first, second, third, fourth] = tags;
+    const [first, second, third] = tags;
     await waitFor(() => {
       expect(screen.getByText(first)).toBeInTheDocument();
       expect(screen.getByText(second)).toBeInTheDocument();
-      expect(screen.getByText(third)).toBeInTheDocument();
-      expect(screen.queryByText(fourth)).not.toBeInTheDocument();
+      expect(screen.queryByText(third)).not.toBeInTheDocument();
     });
   });
 });
