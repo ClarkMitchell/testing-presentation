@@ -5,6 +5,10 @@ export default function Tags() {
   const [ tags, setTags ] = useState([]);
 
   function submit() {
+    if (tags.length === 3) {
+      return;
+    }
+
     setTags([...tags, inputEl.current.value]);
     inputEl.current.value = '';
   }
