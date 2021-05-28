@@ -10,7 +10,8 @@ export default function Tags() {
       return;
     }
 
-    setTags([...tags, inputEl.current.value]);
+    const uniqueTags = new Set([...tags, inputEl.current.value]);
+    setTags(Array.from(uniqueTags));
     inputEl.current.value = '';
   }
 
