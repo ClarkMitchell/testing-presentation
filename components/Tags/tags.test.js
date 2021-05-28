@@ -1,5 +1,5 @@
 import React from 'react';
-import { screen, render, fireEvent } from '@testing-library/react';
+import { screen, render, fireEvent, waitFor } from '@testing-library/react';
 import Tags from '~/components/Tags';
 
 describe('The Tags Component', () => {
@@ -16,24 +16,23 @@ describe('The Tags Component', () => {
     expect(screen.getByText(value)).toBeInTheDocument();
   });
 
-  it('creates a maximum of three tags.', () => {
-    const { debug } = render(<Tags></Tags>);
+  it('creates a maximum of three tags.', async () => {
+    render(<Tags></Tags>);
     const input = screen.getByLabelText(/Tags/);
-    const button = screen.getByText(/Enter/);
+    const button = screen.getByRole('button');
 
-    ['foo', 'bar', 'baz'].forEach((tag) => {
-      fireEvent.change(input, { target: { tag } });
+    const tags = ['foo', 'bar', 'baz', 'buz'];
+    tags.forEach((value) => {
+      fireEvent.change(input, { target: { value } });
       fireEvent.click(button);
-      screen.findByText(tag).then((createdTag) => expect(createdTag).toBeInTheDocument());
     });
 
-    debug();
-
-    // const invalidTag = 'buz';
-    // fireEvent.change(input, { target: { invalidTag } });
-    // fireEvent.click(button);
-    // screen.getByText(invalidTag);
-    // screen.findByText(invalidTag).then((createdTag) => console.error(createdTag));
-    // expect(screen.queryByText(invalidTag)).toBeFalsy();
+    const [first, second, third, fourth] = tags;
+    await waitFor(() => {
+      expect(screen.getByText(first)).toBeInTheDocument();
+      expect(screen.getByText(second)).toBeInTheDocument();
+      expect(screen.getByText(third)).toBeInTheDocument();
+      expect(screen.queryByText(fourth)).not.toBeInTheDocument();
+    });
   });
 });
