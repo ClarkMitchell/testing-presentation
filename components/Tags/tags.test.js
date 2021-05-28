@@ -24,7 +24,7 @@ describe('The Tags Component', () => {
     ['foo', 'bar', 'baz'].forEach((tag) => {
       fireEvent.change(input, { target: { tag } });
       fireEvent.click(button);
-      expect(screen.getByText(tag)).toBeInTheDocument();
+      screen.findByText(tag).then((createdTag) => expect(createdTag).toBeInTheDocument());
     });
 
     const invalidTag = 'buz';
