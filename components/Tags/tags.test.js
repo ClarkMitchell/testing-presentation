@@ -21,5 +21,8 @@ describe('The Tags Component', () => {
 
     const button = screen.getByText(/Enter/);
     fireEvent.click(button);
+
+    expect(input.value).toBe('');
+    expect(screen.getByText(value)).toBeInTheDocument();
   });
 });
