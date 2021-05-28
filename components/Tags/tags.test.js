@@ -47,11 +47,11 @@ describe('The Tags Component', () => {
       fireEvent.click(button);
     });
 
-    const [first, second, third] = tags;
+    const [first, second] = tags;
     await waitFor(() => {
+      /** This should error if first is not unique. */
       expect(screen.getByText(first)).toBeInTheDocument();
       expect(screen.getByText(second)).toBeInTheDocument();
-      expect(screen.queryByText(third)).not.toBeInTheDocument();
     });
   });
 });
