@@ -1,5 +1,6 @@
-# Tag Input
+# Tag Input Component
+## Requirements
 - Text input
-- Only 3 hashtags aloud
+- Only 3 hashtags allowed
 - No duplicates
-- tags should be in camelCase
+- Tags should be in camelCase
