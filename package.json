@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "test": "jest --verbose",
-    "watch": "jest --watch --verbose"
+    "watch": "jest --watch --verbose",
+    "step": "./step.sh"
   },
   "dependencies": {
     "next": "10.2.3",

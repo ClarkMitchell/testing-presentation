@@ -3,7 +3,7 @@ marp: true
 theme: default
 _class:
   - invert
-header: 'Testing in Javascript and React'
+header: 'Testing in Javascript and React • Clark Mitchell'
 size: 4:3
 ---
 
@@ -29,7 +29,15 @@ size: 4:3
 # Why Test ? 🤔
 ## Confidence
 ## Improves code quality
-## **Fewer bugs**
+## **Doubles as documentation**
+
+---
+
+# Why Test ? 🤔
+## Confidence
+## Improves code quality
+## Doubles as documentation
+## **Catch bugs sooner, fewer reach production.**
 
 ---
 
@@ -47,6 +55,7 @@ size: 4:3
 * Storage
 * Stateless components
 * Trivial functions
+* Implementation details of child components.
 
 ---
 
@@ -89,6 +98,15 @@ size: 4:3
 
 ---
 
+# Why Test First ? 🥇
+## Tests will be realistic.
+## Design your ideal API.
+## Failing tests guide you.
+## Refactor with _confidence_.
+## **Tests will actually get written. 😉**
+
+---
+
 # Testing first isn't always realistic
 ## Be pragmatic
 
@@ -128,6 +146,8 @@ size: 4:3
 ---
 
 # Demonstration 📽️
+
+
 
 
 
